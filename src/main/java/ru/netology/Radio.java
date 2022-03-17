@@ -3,6 +3,16 @@ package ru.netology;
 public class Radio {
     private int currentStation;
     private int currentVolume;
+    private int stationQuantity = 10;
+    private int maxStation = stationQuantity - 1;
+    private int minStation = 0;
+
+    public Radio() {
+    }
+
+    public Radio(int stationQuantity) {
+        this.stationQuantity = stationQuantity;
+    }
 
     public int getCurrentStation() {
         return currentStation;
@@ -13,12 +23,12 @@ public class Radio {
     }
 
     public int setToMaxStation() {
-        this.currentStation = 9;
+        this.currentStation = maxStation;
         return 0;
     }
 
     public int setToMinStation() {
-        this.currentStation = 0;
+        this.currentStation = minStation;
         return 0;
     }
 
@@ -26,17 +36,17 @@ public class Radio {
     // Работа с радиостанциями:
 
     public void setCurrentStation(int currentStation) {
-        if (currentStation > 9) {
+        if (currentStation > maxStation) {
             return;
         }
-        if (currentStation < 0) {
+        if (currentStation < minStation) {
             return;
         }
         this.currentStation = currentStation;
     } //Устанавливаем конкретную станцию
 
     public void nextTransferStation(int currentStation) {
-        if (currentStation == 9) {
+        if (currentStation == maxStation) {
             currentStation = setToMinStation();
             return;
         }
@@ -47,7 +57,7 @@ public class Radio {
     } //Переключаем на +1 станцию
 
     public void prevCurrentStation(int currentStation) {
-        if (currentStation == 0) {
+        if (currentStation == minStation) {
             currentStation = setToMaxStation();
             return;
         }
@@ -60,7 +70,7 @@ public class Radio {
     // Работа с уровнем громкости звука:
 
     public void setCurrentVolume(int currentVolume) {
-        if (currentVolume > 10) {
+        if (currentVolume > 100) {
             return;
         }
         if (currentVolume < 0) {
@@ -70,11 +80,11 @@ public class Radio {
     } //Устанавливаем ур-нь звука
 
     public void increaseVolume(int currentVolume) {
-        if (currentVolume < 10) {
+        if (currentVolume < 100) {
             currentVolume++;
         }
-        if (currentVolume > 10) {
-            currentVolume = 10;
+        if (currentVolume > 100) {
+            currentVolume = 100;
         }
         this.currentVolume = currentVolume;
     } //Прибавляем уровень звука
@@ -83,12 +93,11 @@ public class Radio {
         if (currentVolume > 0) {
             currentVolume = currentVolume - 1;
         }
-        if (currentVolume > 10) {
+        if (currentVolume > 100) {
             return;
         }
         this.currentVolume = currentVolume;
     } //Уменьшаем уровень звука
-
 
 
 }
