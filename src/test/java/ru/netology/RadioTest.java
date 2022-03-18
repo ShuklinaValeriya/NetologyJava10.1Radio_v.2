@@ -132,7 +132,7 @@ class RadioTest {
 
     @Test
     public void shouldIncreaseVolumeMin() {
-        Radio radio = new Radio ();
+        Radio radio = new Radio();
 
         radio.increaseVolume(-1);
         int expected = 0;
@@ -174,7 +174,7 @@ class RadioTest {
         assertEquals(expected, actual);
     }
 
-     @Test
+    @Test
     public void shouldDecreaseVolume2() {
         Radio radio = new Radio();
 
@@ -195,7 +195,6 @@ class RadioTest {
 
         assertEquals(expected, actual);
     }
-
 
     @Test
     public void volume() {
