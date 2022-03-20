@@ -45,9 +45,9 @@ public class Radio {
         this.currentStation = currentStation;
     } //Устанавливаем конкретную станцию
 
-    public void nextTransferStation(int currentStation) {
-        if (currentStation == maxStation) {
-            currentStation = setToMinStation();
+    public void nextTransferStation() {
+        if (currentStation == 9) {
+            currentStation = 0;
             return;
         }
         currentStation++;
@@ -56,9 +56,9 @@ public class Radio {
 
     } //Переключаем на +1 станцию
 
-    public void prevCurrentStation(int currentStation) {
-        if (currentStation == minStation) {
-            currentStation = setToMaxStation();
+    public void prevCurrentStation() {
+        if (currentStation == 0) {
+            currentStation = 9;
             return;
         }
         currentStation--;
@@ -79,24 +79,20 @@ public class Radio {
         this.currentVolume = currentVolume;
     } //Устанавливаем ур-нь звука
 
-    public void increaseVolume(int currentVolume) {
-        if (currentVolume < 100) {
-            currentVolume++;
-        }
-        if (currentVolume > 100) {
+    public void increaseVolume() {
+        if (currentVolume == 100) {
             currentVolume = 100;
+            return;
         }
-        this.currentVolume = currentVolume;
+        currentVolume++;
+
     } //Прибавляем уровень звука
 
-    public void decreaseVolume(int currentVolume) {
+    public void decreaseVolume() {
         if (currentVolume > 0) {
             currentVolume = currentVolume - 1;
         }
-        if (currentVolume > 100) {
-            return;
-        }
-        this.currentVolume = currentVolume;
+
     } //Уменьшаем уровень звука
 
 
