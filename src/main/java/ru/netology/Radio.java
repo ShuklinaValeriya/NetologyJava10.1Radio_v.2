@@ -36,10 +36,10 @@ public class Radio {
     // Работа с радиостанциями:
 
     public void setCurrentStation(int currentStation) {
-        if (currentStation > maxStation) {
+        if (currentStation > stationQuantity - 1) {
             return;
         }
-        if (currentStation < minStation) {
+        if (currentStation < 0) {
             return;
         }
         this.currentStation = currentStation;
