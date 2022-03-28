@@ -4,7 +4,7 @@ public class Radio {
     private int currentStation;
     private int currentVolume;
     private int stationQuantity = 10;
-    private int maxStation = stationQuantity - 1;
+    private int maxStation = this.stationQuantity - 1;
     private int minStation = 0;
 
     public Radio() {
@@ -12,8 +12,11 @@ public class Radio {
 
     public Radio(int stationQuantity) {
         this.stationQuantity = stationQuantity;
+        this.maxStation = stationQuantity - 1;
     }
-
+    /*public Radio(int stationQuantity) {
+        this.stationQuantity = stationQuantity;
+       }*/
     public int getCurrentStation() {
         return currentStation;
     }
@@ -24,7 +27,7 @@ public class Radio {
 
     public int setToMaxStation() {
         this.currentStation = maxStation;
-        return 0;
+        return maxStation;
     }
 
     public int setToMinStation() {
@@ -46,7 +49,8 @@ public class Radio {
     } //Устанавливаем конкретную станцию
 
     public void nextTransferStation() {
-        if (currentStation == 9) {
+
+        if (currentStation == stationQuantity - 1) {
             currentStation = 0;
             return;
         }
@@ -58,7 +62,7 @@ public class Radio {
 
     public void prevCurrentStation() {
         if (currentStation == 0) {
-            currentStation = 9;
+            currentStation = stationQuantity - 1;
             return;
         }
         currentStation--;
